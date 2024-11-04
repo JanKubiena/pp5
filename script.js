@@ -1,4 +1,50 @@
-clientList = [];
+var clientList = [];
+var isEditMode = false;
+
+function buildClientList(clientList) {
+  document.getElementById("customer-list").innerHTML = "";
+  clientList.forEach((v, i) => {
+    let listElement = document.createElement("li");
+    listElement.classList.add("list-group-item");
+    listElement.id = `client-list-element-${i}`;
+    if (isEditMode) {
+      document.getElementById("customer-list").appendChild(listElement);
+      const input = document.createElement("input");
+      input.classList.add("form-control");
+      input.type = "text";
+      input.value = v;
+      input.setAttribute("data-index", i);
+      document.getElementById(`client-list-element-${i}`).appendChild(input);
+    } else {
+      let elementText = document.createTextNode(v);
+      listElement.appendChild(elementText);
+      document.getElementById("customer-list").appendChild(listElement);
+    }
+  });
+}
+
+function toggleEditMode() {
+  const editButton = document.getElementById("editButton");
+
+  if (isEditMode) {
+    saveChanges();
+    editButton.textContent = "Edytuj";
+  } else {
+    editButton.textContent = "Zapisz";
+  }
+
+  isEditMode = !isEditMode;
+  buildClientList(clientList);
+}
+
+function saveChanges() {
+  const inputs = document.querySelectorAll("#customer-list > li > input");
+
+  inputs.forEach((input) => {
+    const index = input.getAttribute("data-index");
+    clientList[index] = input.value;
+  });
+}
 
 function callOnSubmit(event) {
   event.preventDefault();
@@ -16,17 +62,15 @@ function callOnSubmit(event) {
   };
   console.log(formObject);
 
-  document.getElementById("customer-list-div").style.display = "block";
-  document.getElementById("customer-form-div").style.display = "none";
+  showClientList();
 
   clientList.push(`${formObject["name"]}`);
-  document.getElementById("customer-list").innerHTML = "";
-  clientList.forEach((e) => {
-    let x = document.createElement("li");
-    let y = document.createTextNode(e);
-    x.appendChild(y);
-    document.getElementById("customer-list").appendChild(x);
-  });
+  buildClientList(clientList);
+}
+
+function showClientList() {
+  document.getElementById("customer-list-div").style.display = "block";
+  document.getElementById("customer-form-div").style.display = "none";
 }
 
 function showForm() {

@@ -54,13 +54,15 @@
           <label class="form-check-label" for="flexCheckDefault"> Aktywny </label>
         </div>
         <button type="submit" class="btn btn-primary">Zapisz Kilienta</button>
-        <button type="button" class="btn btn-danger" onclick="AddTempData()">Add Temporary Data</button>
+        <button type="button" class="btn btn-secondary" onclick="showClientList()">Wyświetl listę klientów</button>
+        <button type="button" class="btn btn-danger" onclick="AddTempData()">Dodaj przykładowe dane</button>
       </form>
     </div>
     <div class="container" id="customer-list-div" style="display: none">
       <h1>Lista klientów:</h1>
       <ol class="list-group list-group-numbered" id="customer-list"></ol>
-      <button type="button" class="btn btn-primary" onclick="showForm()">Add more client</button>
+      <button type="button" class="btn btn-primary" onclick="showForm()">Dodaj klienta</button>
+      <button id="editButton" type="button" class="btn btn-danger" onclick="toggleEditMode()">Edytuj</button>
     </div>
   </body>
 </html>
