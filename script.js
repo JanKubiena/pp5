@@ -1,3 +1,5 @@
+clientList = [];
+
 function callOnSubmit(event) {
   event.preventDefault();
   let formObject = {
@@ -13,11 +15,29 @@ function callOnSubmit(event) {
     flexCheckDefault: document.getElementById("flexCheckDefault").checked,
   };
   console.log(formObject);
+
+  document.getElementById("customer-list-div").style.display = "block";
+  document.getElementById("customer-form-div").style.display = "none";
+
+  clientList.push(`${formObject["name"]}`);
+  document.getElementById("customer-list").innerHTML = "";
+  clientList.forEach((e) => {
+    let x = document.createElement("li");
+    let y = document.createTextNode(e);
+    x.appendChild(y);
+    document.getElementById("customer-list").appendChild(x);
+  });
+}
+
+function showForm() {
+  document.getElementById("customer-form-div").style.display = "block";
+  document.getElementById("customer-list-div").style.display = "none";
+  document.getElementById("customer-form").reset();
 }
 
 //funkcja dodająca do formularza
 function AddTempData() {
-  document.getElementById("firmLabel").value = "koksownia";
+  document.getElementById("firmLabel").value = "xyz";
   document.getElementById("nip").value = 1234567890;
   document.getElementById("cityName").value = "Kraków";
   document.getElementById("streetName").value = "Rakowicka";
