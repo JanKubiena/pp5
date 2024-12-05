@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ClientFormComponent } from './client-form/client-form.component';
+import { InvoiceModule } from './invoice/invoice.module';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ClientFormComponent],
+  imports: [RouterOutlet, InvoiceModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
