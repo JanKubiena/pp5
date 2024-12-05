@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-client-form',
-  imports: [],
   templateUrl: './client-form.component.html',
-  styleUrl: './client-form.component.scss'
+  styleUrl: './client-form.component.scss',
+  standalone: false,
 })
-export class ClientFormComponent {
-
-}
+export class ClientFormComponent {}
