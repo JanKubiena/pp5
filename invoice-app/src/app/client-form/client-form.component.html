@@ -1,0 +1,93 @@
+<div class="container" id="customer-form-div">
+  <form id="customer-form" onsubmit="callOnSubmit(event)">
+    <legend>Formularz</legend>
+    <div class="mb-3">
+      <label for="firmLabel" class="form-label first-element"
+        >Nazwa firmy</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="firmLabel"
+        aria-describedby="emailHelp"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="nip" class="form-label">NIP</label>
+      <input type="number" class="form-control" id="nip" required />
+    </div>
+    <div class="mb-3">
+      <label for="cityName" class="form-label">Miasto</label>
+      <input type="text" class="form-control" id="cityName" required />
+    </div>
+    <div class="mb-3">
+      <label for="streetName" class="form-label">Ulica</label>
+      <input type="text" class="form-control" id="streetName" required />
+    </div>
+    <div class="mb-3">
+      <label for="houseNumber" class="form-label">Numer domu</label>
+      <input type="number" class="form-control" id="houseNumber" required />
+    </div>
+    <div class="mb-3">
+      <label for="apartmentNumber" class="form-label">Numer mieszkania</label>
+      <input type="number" class="form-control" id="apartmentNumber" />
+    </div>
+    <div class="mb-3">
+      <label for="postalcode" class="form-label">kod pocztowy</label>
+      <input type="text" class="form-control" id="postalcode" required />
+    </div>
+    <div class="mb-3">
+      <label for="comments" class="form-label last-element">Uwagi</label>
+      <textarea class="form-control" id="comments" rows="3"></textarea>
+    </div>
+    <select
+      id="selectLabel"
+      class="form-select"
+      aria-label="Default select example"
+      required
+    >
+      <option selected>Branża</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault"> Aktywny </label>
+    </div>
+    <div id="clientButtons">
+      <button type="submit" class="btn btn-primary">Zapisz Kilienta</button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        onclick="showClientList()"
+      >
+        Wyświetl listę klientów
+      </button>
+      <button type="button" class="btn btn-danger" onclick="AddTempData()">
+        Dodaj przykładowe dane
+      </button>
+    </div>
+    <div id="editButtons" style="display: none">
+      <button type="button" class="btn btn-primary" onclick="editClient()">
+        Zapisz
+      </button>
+      <button type="button" class="btn btn-danger" onclick="showClientList()">
+        Anuluj
+      </button>
+    </div>
+  </form>
+</div>
+<div class="container" id="customer-list-div" style="display: none">
+  <h1>Lista klientów:</h1>
+  <ol class="list-group list-group-numbered" id="customer-list"></ol>
+  <button type="button" class="btn btn-primary" onclick="showForm()">
+    Dodaj klienta
+  </button>
+</div>
