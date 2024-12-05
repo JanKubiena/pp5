@@ -4,11 +4,11 @@ export class Customer {
   constructor() {}
 
   firmLabel: string = '';
-  nip: number = 0;
+  nip: number | undefined;
   cityName: string = '';
   streetName: string = '';
-  houseNumber: number = 0;
-  apartmentNumber: number = 0;
+  houseNumber: number | undefined;
+  apartmentNumber: number | undefined;
   postalcode: string = '';
   comments: string = '';
   industry: string = '';

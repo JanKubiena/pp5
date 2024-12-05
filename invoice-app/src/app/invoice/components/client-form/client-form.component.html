@@ -1,5 +1,5 @@
 <div class="container" id="customer-form-div">
-  <form id="customer-form" onsubmit="callOnSubmit(event)">
+  <form id="customer-form" (ngSubmit)="callOnSubmit()">
     <legend>Formularz</legend>
     <div class="mb-3">
       <label for="firmLabel" class="form-label first-element"
@@ -10,41 +10,92 @@
         class="form-control"
         id="firmLabel"
         aria-describedby="emailHelp"
+        name="firmLabel"
+        [(ngModel)]="customer.firmLabel"
         required
       />
     </div>
     <div class="mb-3">
       <label for="nip" class="form-label">NIP</label>
-      <input type="number" class="form-control" id="nip" required />
+      <input
+        type="number"
+        class="form-control"
+        id="nip"
+        name="nip"
+        [(ngModel)]="customer.nip"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="cityName" class="form-label">Miasto</label>
-      <input type="text" class="form-control" id="cityName" required />
+      <input
+        type="text"
+        class="form-control"
+        id="cityName"
+        name="cityName"
+        [(ngModel)]="customer.cityName"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="streetName" class="form-label">Ulica</label>
-      <input type="text" class="form-control" id="streetName" required />
+      <input
+        type="text"
+        class="form-control"
+        id="streetName"
+        name="streetName"
+        [(ngModel)]="customer.streetName"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="houseNumber" class="form-label">Numer domu</label>
-      <input type="number" class="form-control" id="houseNumber" required />
+      <input
+        type="number"
+        class="form-control"
+        id="houseNumber"
+        name="houseNumber"
+        [(ngModel)]="customer.houseNumber"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="apartmentNumber" class="form-label">Numer mieszkania</label>
-      <input type="number" class="form-control" id="apartmentNumber" />
+      <input
+        type="number"
+        class="form-control"
+        id="apartmentNumber"
+        name="apartmentNumber"
+        [(ngModel)]="customer.apartmentNumber"
+      />
     </div>
     <div class="mb-3">
       <label for="postalcode" class="form-label">kod pocztowy</label>
-      <input type="text" class="form-control" id="postalcode" required />
+      <input
+        type="text"
+        class="form-control"
+        id="postalcode"
+        name="postalcode"
+        [(ngModel)]="customer.postalcode"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="comments" class="form-label last-element">Uwagi</label>
-      <textarea class="form-control" id="comments" rows="3"></textarea>
+      <textarea
+        class="form-control"
+        id="comments"
+        rows="3"
+        name="comments"
+        [(ngModel)]="customer.comments"
+      ></textarea>
     </div>
     <select
       id="selectLabel"
       class="form-select"
       aria-label="Default select example"
+      name="industry"
+      [(ngModel)]="customer.industry"
       required
     >
       <option selected>Branża</option>
@@ -58,6 +109,8 @@
         type="checkbox"
         value=""
         id="flexCheckDefault"
+        name="isActive"
+        [(ngModel)]="customer.isActive"
       />
       <label class="form-check-label" for="flexCheckDefault"> Aktywny </label>
     </div>
