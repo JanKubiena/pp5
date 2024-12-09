@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './customer-list.component.scss',
   standalone: false,
 })
-export class CustomerListComponent {}
+export class CustomerListComponent {
+  constructor(private customerService: CustomerService) {
+    console.log(this.customerService.getCustomers());
+  }
+}
