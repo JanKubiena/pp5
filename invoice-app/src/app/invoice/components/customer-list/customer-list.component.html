@@ -1,1 +1,15 @@
-<p>customer-list works!</p>
+<div id="client-list-div">
+  <ul id="client-list">
+    <app-customer-list-element
+      *ngFor="let customer of customerList"
+      [customer]="customer"
+    ></app-customer-list-element>
+    <button
+      type="button"
+      class="btn btn-primary"
+      [routerLink]="'/invoice/client-form/'"
+    >
+      Dodaj klienta
+    </button>
+  </ul>
+</div>

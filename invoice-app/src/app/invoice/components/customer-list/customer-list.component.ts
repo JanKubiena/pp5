@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
+import { Customer } from '../../models/customer';
 
 @Component({
   selector: 'app-customer-list',
@@ -8,7 +9,10 @@ import { CustomerService } from '../../services/customer.service';
   standalone: false,
 })
 export class CustomerListComponent {
+  customerList: Customer[];
+
   constructor(private customerService: CustomerService) {
     console.log(this.customerService.getCustomers());
+    this.customerList = this.customerService.getCustomers();
   }
 }
