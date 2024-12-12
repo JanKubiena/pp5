@@ -1,15 +1,15 @@
 <div id="client-list-div">
-  <ul id="client-list">
+  <ol class="list-group list-group-numbered" id="customer-list">
     <app-customer-list-element
       *ngFor="let customer of customerList"
       [customer]="customer"
     ></app-customer-list-element>
-    <button
-      type="button"
-      class="btn btn-primary"
-      [routerLink]="'/invoice/client-form/'"
-    >
-      Dodaj klienta
-    </button>
-  </ul>
+  </ol>
+  <button
+    type="button"
+    class="btn btn-primary"
+    [routerLink]="'/invoice/client-form/'"
+  >
+    Dodaj klienta
+  </button>
 </div>
