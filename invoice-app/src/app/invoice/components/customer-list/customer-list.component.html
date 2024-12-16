@@ -3,6 +3,7 @@
     <app-customer-list-element
       *ngFor="let customer of customerList"
       [customer]="customer"
+      (deletedCustomerEvent)="delateCustomer($event)"
     ></app-customer-list-element>
   </ol>
   <button

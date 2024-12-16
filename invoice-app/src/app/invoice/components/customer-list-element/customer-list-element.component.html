@@ -3,4 +3,7 @@
   [ngStyle]="customer.isActive ? {} : { color: 'red' }"
 >
   {{ customer.getCustomerInfo() }}
+  <button class="btn btn-danger" (click)="onDeleteCustomer(customer)">
+    Usuń
+  </button>
 </li>

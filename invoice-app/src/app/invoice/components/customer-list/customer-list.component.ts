@@ -21,4 +21,7 @@ export class CustomerListComponent implements OnDestroy, OnInit {
   ngOnDestroy(): void {
     console.log('zamykam komponent');
   }
+  delateCustomer(event: Customer) {
+    console.log('Usuwam klienta o nipe: ' + event.nip);
+  }
 }
