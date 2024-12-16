@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { Customer } from '../../models/customer';
 
@@ -8,11 +8,17 @@ import { Customer } from '../../models/customer';
   styleUrl: './customer-list.component.scss',
   standalone: false,
 })
-export class CustomerListComponent {
-  customerList: Customer[];
+export class CustomerListComponent implements OnDestroy, OnInit {
+  customerList: Customer[] = [];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService) {}
+
+  ngOnInit(): void {
     console.log(this.customerService.getCustomers());
     this.customerList = this.customerService.getCustomers();
+  }
+
+  ngOnDestroy(): void {
+    console.log('zamykam komponent');
   }
 }
