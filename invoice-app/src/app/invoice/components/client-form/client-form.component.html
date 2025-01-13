@@ -1,5 +1,9 @@
 <div class="container" id="customer-form-div">
-  <form id="customer-form" (ngSubmit)="callOnSubmit()">
+  <form
+    id="customer-form"
+    (ngSubmit)="callOnSubmit(clientForm)"
+    #clientForm="ngForm"
+  >
     <legend>Formularz</legend>
     <div class="mb-3">
       <label for="firmLabel" class="form-label first-element"
@@ -22,9 +26,16 @@
         class="form-control"
         id="nip"
         name="nip"
+        #nip="ngModel"
         [(ngModel)]="customer.nip"
         required
       />
+      <div
+        *ngIf="nip.invalid && clientForm.submitted"
+        class="alert alert-danger"
+      >
+        Pole NIP nie może być puste
+      </div>
     </div>
     <div class="mb-3">
       <label for="cityName" class="form-label">Miasto</label>
@@ -115,7 +126,13 @@
       <label class="form-check-label" for="flexCheckDefault"> Aktywny </label>
     </div>
     <div id="clientButtons">
-      <button type="submit" class="btn btn-primary">Zapisz Kilienta</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!clientForm.form.valid"
+      >
+        Zapisz Kilienta
+      </button>
       <button
         type="button"
         class="btn btn-secondary"
